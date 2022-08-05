@@ -1,0 +1,102 @@
+.ticket-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    flex-grow: 1;
+}
+.ticket {
+    display: flex;
+    gap: 15px;
+    min-height: 160px;
+    min-width: 300px;
+    width: 100%;
+    color: $dark-gray;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgb(100 100 111 / 10%) 0px 0px 15px 6px;
+    padding: 25px;
+    box-sizing: border-box;
+
+    @include mob {
+        gap: 10px;
+        min-height: 130px;
+        padding: 15px;
+
+        img {
+           width: 80px;
+           height: 23px;
+        }
+    }
+
+    &__buy {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__info {
+        flex-grow: 1;
+    }
+
+    button {
+        font-size: 16px;
+        color: white;
+        background-color: $basic-orange;
+        border-radius: 5px;
+        border: none;
+        min-width: 150px;
+        width: 100%;
+        padding: 5px;
+        outline: none;
+
+        @include mob {
+            font-size: 14px;
+            min-width: 70px;
+        }
+    }
+
+    &__timetable,
+    &__from-to {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    &__time {
+        font-weight: 700;
+        font-size: 34px;
+
+        @include mob {
+            font-size: 22px;
+        }
+    }
+
+    &__trans {
+        color: $light-gray;
+        margin-top: -4px;
+        flex-grow: .6;
+        text-align: center;
+
+        @include mob {
+           font-size: 12px;
+        }
+    }
+
+    &__from,
+    &__to {
+        display: flex;
+        flex-direction: column;
+        color: $light-gray;
+
+        span {
+            font-weight: 700;
+            color: $dark-gray;
+        }
+    }
+
+    &__to {
+        text-align: right;
+    }
+}

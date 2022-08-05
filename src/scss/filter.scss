@@ -1,0 +1,101 @@
+.filter {
+    width: 250px;
+    border-radius: 5px;
+    box-shadow: rgb(100 100 111 / 10%) 0px 0px 15px 6px;
+    background-color: white;
+    padding: 15px;
+    box-sizing: border-box;
+
+    @include mob {
+        align-self: center;
+    }
+
+    &__title {
+        font-size: 16px;
+        text-transform: uppercase;
+        color: $dark-gray;
+    }
+
+    &__money {
+        display: flex;
+
+        button {
+            cursor: pointer;
+            color: $basic-blue;
+            background-color: white;
+            border: 1px solid $basic-blue;
+            padding: 12px 22px;
+            outline: none;
+            transition: 0.3s;
+
+            &:first-of-type {
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+                margin-right: -1px;
+            }
+
+            &:last-of-type {
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+                margin-left: -1px;
+            }
+
+            &.active {
+                color: $light-blue;
+                background-color: $basic-blue;
+            }
+
+            &:not(.active):hover {
+                background-color: $light-blue;
+                transition: 0.3s;
+            }
+        }
+    }
+
+    &__transfer {
+        display: flex;
+        flex-direction: column;
+        
+        label {
+            cursor: pointer;
+            position: relative;
+            color: $dark-gray;
+            padding-left: 30px;
+            margin-bottom: 10px;
+        }
+
+        input + label::before {
+            content: '';
+            display: block;
+            position: absolute;
+            box-sizing: border-box;
+            left: 4px;
+            top: 0;
+            height: 17px;
+            width: 17px;
+            background-color: white;
+            border: 1px solid #cfcfcf;
+            border-radius: 4px;
+        }
+
+        input:checked + label::before {
+            border-color: $basic-blue;
+        }
+
+        input:checked + label::after {
+            content: '';
+            display: block;
+            position: absolute;
+            box-sizing: border-box;
+            left: 10px;
+            top: 3px;
+            height: 10px;
+            width: 5px;
+            border-bottom: 2px solid $basic-blue;
+            border-right: 2px solid $basic-blue;
+            border-top:0px solid $basic-blue;
+            border-left:0px solid $basic-blue;
+            transform: rotate(35deg);
+        }
+    }
+}
