@@ -1,9 +1,9 @@
 .filter {
     width: 250px;
+    height: fit-content;
     border-radius: 5px;
     box-shadow: rgb(100 100 111 / 10%) 0px 0px 15px 6px;
     background-color: white;
-    padding: 15px;
     box-sizing: border-box;
 
     @include mob {
@@ -11,20 +11,24 @@
     }
 
     &__title {
-        font-size: 16px;
+        font-size: 14px;
         text-transform: uppercase;
         color: $dark-gray;
+        margin: 0;
+        padding: 15px;
     }
 
     &__money {
         display: flex;
+        padding: 0 15px;
 
         button {
             cursor: pointer;
+            font-family: "Montserrat", "Arial", sans-serif;
             color: $basic-blue;
             background-color: white;
             border: 1px solid $basic-blue;
-            padding: 12px 22px;
+            padding: 12px 21px;
             outline: none;
             transition: 0.3s;
 
@@ -55,13 +59,19 @@
     &__transfer {
         display: flex;
         flex-direction: column;
+        padding-bottom: 15px;
         
         label {
             cursor: pointer;
             position: relative;
             color: $dark-gray;
-            padding-left: 30px;
-            margin-bottom: 10px;
+            padding: 5px 0 5px 45px;
+            transition: 0.3s;
+
+            &:hover {
+                background-color: $light-blue;
+                transition: 0.3s;
+            }
         }
 
         input + label::before {
@@ -69,8 +79,8 @@
             display: block;
             position: absolute;
             box-sizing: border-box;
-            left: 4px;
-            top: 0;
+            left: 18px;
+            top: 5px;
             height: 17px;
             width: 17px;
             background-color: white;
@@ -87,8 +97,8 @@
             display: block;
             position: absolute;
             box-sizing: border-box;
-            left: 10px;
-            top: 3px;
+            left: 24px;
+            top: 7px;
             height: 10px;
             width: 5px;
             border-bottom: 2px solid $basic-blue;

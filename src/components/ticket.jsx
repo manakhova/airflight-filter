@@ -1,27 +1,29 @@
 import React from 'react';
-import logo from "../img/logo.png" ;
+import {getCorrectEnding} from "../utils/utils";
 
-function Ticket() {
+function Ticket(props) {
+    const {ticket} = props;
+
     return (
-        <li className="ticket-list__item ticket">
+        <li className="ticket-list__item ticket" data-stops = {ticket.stops}>
             <div className="ticket__buy">
-                <img src={logo} alt="Turkish Airlines" width="125px" height="35px"/>
-                <button type="button">Купить <br/> за 100 &#8381;</button>
+                <span>{ticket.carrier}</span>
+                <button type="button">Купить <br/> за {ticket.price} &#8381;</button>
             </div>
             <div className="ticket__info">
                 <div className="ticket__timetable">
-                    <time className="ticket__time" dateTime="">10:20</time>
-                    <div className="ticket__trans">2 пересадки</div>
-                    <time className="ticket__time" dateTime="">10:20</time>
+                    <time className="ticket__time" dateTime="">{ticket.departureTime}</time>
+                    <div className="ticket__trans">{ticket.stops} {getCorrectEnding(ticket.stops)}</div>
+                    <time className="ticket__time" dateTime="">{ticket.arrivalTime}</time>
                 </div>
                 <div className="ticket__from-to">
                     <div className="ticket__from">
-                        <span className="ticket__from-airport">dfdf</span>
-                        <time className="ticket__from-date" dateTime="">10:20</time>
+                        <span className="ticket__from-airport">{ticket.origin}, {ticket.originName}</span>
+                        <time className="ticket__from-date" dateTime="">{ticket.departureDate}</time>
                     </div>
                     <div className="ticket__to">
-                        <span className="ticket__to-airport">dfsdfsdf</span>
-                        <time className="ticket__to-date" dateTime="">10:20</time>
+                        <span className="ticket__to-airport">{ticket.destination}, {ticket.destinationName}</span>
+                        <time className="ticket__to-date" dateTime="">{ticket.arrivalDate}</time>
                     </div>
                 </div>
             </div>
